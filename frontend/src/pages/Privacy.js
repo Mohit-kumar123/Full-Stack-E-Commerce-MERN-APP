@@ -54,7 +54,7 @@ export default function Privacy() {
             <span className="font-semibold">Email:</span> info@tarangelectronics.com
           </p>
           <p className="text-lg">
-            <span className="font-semibold">Phone:</span> +91-9876543210
+            <span className="font-semibold">Phone:</span> +91-9142359584
           </p>
         </div>
       </section>
