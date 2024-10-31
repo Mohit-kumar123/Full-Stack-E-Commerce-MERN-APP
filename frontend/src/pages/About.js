@@ -21,7 +21,7 @@ export default function About() {
         {/* Social Media Links */}
         <div className="flex space-x-4 text-lg font-semibold">
           <a
-            href="https://www.linkedin.com/in/mohit-kumar12/"
+            href="https://www.linkedin.com/"
             target="_blank"
             rel="noopener noreferrer"
             className="bg-blue-100 hover:bg-blue-200 text-blue-700 rounded-full px-5 py-2"
