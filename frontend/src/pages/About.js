@@ -37,7 +37,7 @@ export default function About() {
             <i className="fa fa-facebook mr-2" aria-hidden="true"></i>Facebook
           </a>
           <a
-            href="mailto:mk0733920@gmail.com"
+            href="mailto:kumarpradeep941136@gmail.com"
             className="bg-blue-100 hover:bg-blue-200 text-blue-700 rounded-full px-5 py-2"
           >
             <i className="fa fa-envelope mr-2" aria-hidden="true"></i>Email
