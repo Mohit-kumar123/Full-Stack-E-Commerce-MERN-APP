@@ -1,29 +1,69 @@
-const express = require('express')
-const cors = require('cors')
-const cookieParser = require('cookie-parser')
-require('dotenv').config()
-const connectDB = require('./config/db')
-const router = require('./routes')
+// const express = require('express')
+// const cors = require('cors')
+// const cookieParser = require('cookie-parser')
+// require('dotenv').config()
+// const connectDB = require('./config/db')
+// const router = require('./routes')
 
 
-const app = express()
+// const app = express()
+// app.use(cors({
+//     origin : process.env.FRONTEND_URL,
+//     credentials : true
+// }))
+// app.use(express.json())
+// app.use(cookieParser())
+
+// app.use("/api",router)
+
+// // const PORT = process.env.PORT || 8080
+// const PORT = process.env.PORT; 
+
+
+
+// connectDB().then(()=>{
+//     app.listen(PORT,()=>{
+//         console.log("connnect to DB")
+//         console.log("Server is running "+PORT)
+//     })
+// })
+
+
+const express = require('express');
+const cors = require('cors');
+const cookieParser = require('cookie-parser');
+require('dotenv').config();
+const connectDB = require('./config/db');
+const router = require('./routes');
+
+const app = express();
+
+// CORS configuration
 app.use(cors({
-    origin : process.env.FRONTEND_URL,
-    credentials : true
-}))
-app.use(express.json())
-app.use(cookieParser())
+    origin: process.env.FRONTEND_URL, // Ensure this is set correctly
+    credentials: true
+}));
 
-app.use("/api",router)
+app.use(express.json());
+app.use(cookieParser());
 
-// const PORT = process.env.PORT || 8080
-const PORT = process.env.PORT; 
+// Root route
+app.get('/', (req, res) => {
+    res.send('Welcome to the API!'); // Simple message for the root URL
+});
 
+// API routes
+app.use("/api", router);
 
+// Set PORT from environment variable or default to 8080
+const PORT = process.env.PORT || 8080;
 
-connectDB().then(()=>{
-    app.listen(PORT,()=>{
-        console.log("connnect to DB")
-        console.log("Server is running "+PORT)
-    })
-})
+connectDB().then(() => {
+    app.listen(PORT, () => {
+        console.log("Connected to DB");
+        console.log(`Server is running on port ${PORT}`);
+    });
+}).catch(err => {
+    console.error("Database connection failed:", err);
+});
+
